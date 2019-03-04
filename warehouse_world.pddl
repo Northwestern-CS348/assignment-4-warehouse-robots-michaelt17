@@ -51,7 +51,7 @@
 
   (:action completeShipment
 			:parameters (?s - shipment ?o - order ?l - location)
-			:precondition (and (not (complete ?s)) (ships ?s ?o) (packing-location ?l) (packing-at ?s ?l) )
+			:precondition (and (not (complete ?s)) (ships ?s ?o) (packing-at ?s ?l) )
 			:effect (and (complete ?s) (available ?l) (not (packing-at ?s ?l)) )
   )
 

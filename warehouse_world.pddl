@@ -33,13 +33,13 @@
 
   (:action robotMove
 			:parameters (?r - robot ?l1 - location ?l2 - location)
-			:precondition (and (connected ?l1 ?l2) (free ?r) (at ?r ?l1) (no-robot ?l2) )
+			:precondition (and (connected ?l1 ?l2) (at ?r ?l1) (no-robot ?l2) )
 			:effect (and (not (at ?r ?l1)) (not (no-robot ?l2)) (at ?r ?l2) (no-robot ?l1) )
 	)
 
 	(:action robotMoveWithPallette
 			:parameters (?r - robot ?l1 - location ?l2 - location ?p - pallette)
-			:precondition (and (connected ?l1 ?l2) (free ?r) (at ?r ?l1) (at ?p ?l1) (no-robot ?l2) (no-pallette ?l2) )
+			:precondition (and (connected ?l1 ?l2) (at ?r ?l1) (at ?p ?l1) (no-robot ?l2) (no-pallette ?l2) )
 			:effect (and (at ?r ?l2) (at ?p ?l2) (not (at ?r ?l1)) (not (at ?p ?l1)) (no-robot ?l1) (no-pallette ?l1) (not (no-robot ?l2)) (not (no-pallette ?l2)) )
 	)
 
